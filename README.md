@@ -36,7 +36,7 @@ Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.
 
 ## Cite
 
-If you find **CasFlow** useful for your research, please consider citing us:
+If you find **CasFlow** useful for your research, please consider citing us 😘:
 
     @inproceedings{zhou2020exploring,  
       author = {Zhou, Fan and Xu, Xovee and Zhang, Kunpeng and Trajcevski, Goce},  
