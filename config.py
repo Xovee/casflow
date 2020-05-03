@@ -1,7 +1,7 @@
 # Author: Xovee Xu
 # Email: xovee at live.com
 
-dataset = 'weibo'  # modify this to your own dataset directory
+dataset = 'xovee'  # modify this to your own dataset directory
 
 observation_time = 3600*.5
 prediction_time = [24*3600]
