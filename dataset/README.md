@@ -9,6 +9,3 @@ There's five parts each line, splited by `\t`:
 3. publication timestamp
 4. number of participants (e.g., retweets)
 5. participants, splited by space ` `, take `1839561/125921/467482:3655` as an example, it means user `467482` retweet user `1839561`'s tweet by through user `125921`'s retweet, after 3655 seconds since the publication of the tweet. 
-
-# Weibo dataset
-You can obtain the Weibo dataset at https://github.com/CaoQi92/DeepHawkes
