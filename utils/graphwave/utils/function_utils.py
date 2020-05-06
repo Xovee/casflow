@@ -5,8 +5,6 @@ Useful functions for investigating the distribution of the diffusion coefficient
 import copy
 from graph_tools import *
 import numpy as np
-import pandas as pd
-import seaborn as sb
 
 
 def h(x, epsilon=10**(-6)):

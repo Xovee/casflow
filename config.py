@@ -3,6 +3,7 @@
 
 dataset = 'xovee'  # modify this to your own dataset directory
 
+# you should use different time settings for different datasets
 observation_time = 3600*.5
 prediction_time = [24*3600]
 

@@ -30,7 +30,7 @@ def generate_cascades(
             cascade_total += 1
             parts = line.split('\t')
             cascade_id = parts[0]
-            hour = int(time.strftime('%H', time.localtime(float(parts[2]))))
+            hour = int(time.strftime('%H', time.gmtime(float(parts[2])))) + 8
             n_retweet = int(parts[3])
             paths = parts[4].split(' ')
 
