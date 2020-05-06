@@ -1,6 +1,5 @@
 import copy
 import math
-import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import scipy as sc
