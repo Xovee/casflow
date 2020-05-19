@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ### Run code in Google Colab
 
-You can also run the code in [Google Golab](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing). 
+You can also run the code in [Google Colab](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing). 
 
 #### Options
 You may change the model settings manually in `config.py` or directly into the codes. 
