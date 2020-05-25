@@ -1,8 +1,8 @@
 # CasFlow
 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
-> Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
-> Fan Zhou, Xovee Xu, Kunpeng Zhang and Goce Trajcevski.  
+> CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
+> Fan Zhou, Xovee Xu, Kunpeng Zhang, Siyuan Liu and Goce Trajcevski.  
 > Submitted for publication.
 
 ## Basic Usage
@@ -45,9 +45,18 @@ Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.
 
 If you find **CasFlow** useful for your research, please consider citing us 😘:
 
-    @inproceedings{zhou2020exploring,  
-      author = {Zhou, Fan and Xu, Xovee and Zhang, Kunpeng and Trajcevski, Goce},  
-      title = {Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
+    @inproceedings{zhou2020casflow,  
+      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
+      title = {CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
       booktitle = {Submitted for publication},
-      year = {2020}
+      year = {2020}, 
+    }
+    
+We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be interested:
+
+    @article{zhou2020survey,
+      author = {Fan Zhou and Xovee Xu and Goce Trajcevski and Kunpeng Zhang}, 
+      title = {A Survey of Information Cascade Analysis: Models, Predictions and Recent Advances}, 
+      journal = {arXiv:2005.11041}, 
+      year = {2020},
     }
