@@ -59,4 +59,5 @@ We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be int
       title = {A Survey of Information Cascade Analysis: Models, Predictions and Recent Advances}, 
       journal = {arXiv:2005.11041}, 
       year = {2020},
+      pages = {1--41},
     }
