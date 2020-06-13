@@ -2,7 +2,7 @@
 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
-> Fan Zhou, Xovee Xu, Kunpeng Zhang, Siyuan Liu and Goce Trajcevski.  
+> Fan Zhou, [Xovee Xu](https://xovee.cn), Kunpeng Zhang, Siyuan Liu and Goce Trajcevski.  
 > Submitted for publication.
 
 ## Basic Usage
