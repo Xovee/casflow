@@ -1,5 +1,7 @@
 # CasFlow
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing)
+
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
 > Fan Zhou, [Xovee Xu](https://xovee.cn), Kunpeng Zhang, Siyuan Liu and Goce Trajcevski.  
