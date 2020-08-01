@@ -1,6 +1,10 @@
 # CasFlow
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing)
+![](https://img.shields.io/badge/python-3.7-green)
+![](https://img.shields.io/badge/tensorflow-2.0.0a-green)
+![](https://img.shields.io/badge/cudatoolkit-10.0-green)
+![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
