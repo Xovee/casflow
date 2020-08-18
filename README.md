@@ -55,11 +55,22 @@ I plan to optimize the codes recently, sorry for the inconvenience.
 
 If you find **CasFlow** useful for your research, please consider citing us 😘:
 
-    @inproceedings{zhou2020casflow,  
+    @article{zhou2020casflow,  
       author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
       title = {CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
       booktitle = {Submitted for publication},
       year = {2020}, 
+    }
+    
+This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.9155349):
+
+    @inproceedings{zhou2020variational,
+      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Goce Trajcevski and Ting Zhong},
+      title = {Variational Information Diffusion for Probabilistic Cascades Prediction}, 
+      booktitle = {IEEE International Conference on Computer Communications (INFOCOM)},
+      year = {2020},
+      pages = {1618--1627},
+      doi = {10.1109/INFOCOM41043.2020.9155359},
     }
     
 We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be interested:
