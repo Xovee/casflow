@@ -7,26 +7,32 @@
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
-> CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction.  
-> Fan Zhou, [Xovee Xu](https://xovee.cn), Kunpeng Zhang, Siyuan Liu and Goce Trajcevski.  
-> Submitted for publication.
+> CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction  
+> [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Xovee Xu](https://xovee.cn), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en) and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
+> Submitted for review  
 
 ## Basic Usage
 
 ### Requirements
 
-The code was tested with Python 3.7, `tensorflow-gpu` 2.0.0a and Cuda 10.0. Install the dependencies:
+The code was tested with `python 3.7`, `tensorflow-gpu 2.0.0a`, `cudatookkit 10.0`, and `cudnn 7.6.5`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
 
-```python
+```shell
+# create virtual environment
+conda create --name casflow python=3.7 cudatoolkit=10.0 cudnn=7.6.5
+# activate environment
+conda activate casflow
+
+# install other requirements
 pip install -r requirements.txt
 ```
 
 ### Run the code
 ```shell
-> cd casflow
-> python gene_cascade.py
-> python preprocessing.py
-> python casflow.py
+cd casflow
+python gene_cascade.py
+python preprocessing.py
+python casflow.py
 ```
 
 ### Run code in Google Colab
