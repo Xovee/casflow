@@ -20,6 +20,7 @@ The code was tested with `python 3.7`, `tensorflow-gpu 2.0.0a`, `cudatookkit 10.
 ```shell
 # create virtual environment
 conda create --name casflow python=3.7 cudatoolkit=10.0 cudnn=7.6.5
+
 # activate environment
 conda activate casflow
 
@@ -30,17 +31,21 @@ pip install -r requirements.txt
 ### Run the code
 ```shell
 cd casflow
-python gene_cascade.py
-python preprocessing.py
+
+# generate information cascades
+python gene_cas.py
+
+# generate cascade and global graph embeddings 
+python gene_emb.py
+
+# run the CasFlow model
 python casflow.py
 ```
+More running options are described in the codes, e.g., `--input=./dataset/weibo/`
 
 ### Run code in Google Colab
 
 You can also run the code in [Google Colab](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing). 
-
-#### Options
-You may change the model settings manually in `config.py` or directly into the codes. 
 
 #### Datasets
 
@@ -52,10 +57,6 @@ The datasets we used in the paper can be obtained here:
 - [Weibo](https://github.com/CaoQi92/DeepHawkes) (Cao *et al.*, [DeepHawkes: Bridging the Gap between 
 Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.1145/3132847.3132973)., CIKM, 2017). You can also download Weibo dataset [here](https://drive.google.com/file/d/1fgkLeFRYQDQOKPujsmn61sGbJt6PaERF/view?usp=sharing) in Google Drive.  
 - [APS](https://journals.aps.org/datasets) (Released by *American Physical Society*, obtained at Jan 17, 2019). 
-
-## Todos
-
-I plan to optimize the codes recently, sorry for the inconvenience.
 
 ## Cite
 
