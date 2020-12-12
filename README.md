@@ -1,6 +1,7 @@
 # CasFlow
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing)
+[![Open in Code Ocean](https://codeocean.com/codeocean-assets/badge/open-in-code-ocean.svg)](https://codeocean.com/capsule/3470945/tree)
 ![](https://img.shields.io/badge/python-3.7-green)
 ![](https://img.shields.io/badge/tensorflow-2.0.0a-green)
 ![](https://img.shields.io/badge/cudatoolkit-10.0-green)
@@ -43,11 +44,11 @@ python casflow.py
 ```
 More running options are described in the codes, e.g., `--input=./dataset/weibo/`
 
-### Run code in Google Colab
+### Run CasFlow online in browser
 
-You can also run the code in [Google Colab](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing). 
+You can also run CasFlow model online in [Google Colab](https://colab.research.google.com/drive/19zQrAIo-yyfkH8m95UmdepzSryxHHs_a?usp=sharing) or [Code Ocean](https://codeocean.com/capsule/3470945/tree). Both of the two websites provide Python programming environment and GPU-support. 
 
-#### Datasets
+## Information Cascade Datasets
 
 See some sample cascades in `./dataset/xovee/`.
 
@@ -68,6 +69,7 @@ If you find **CasFlow** useful for your research, please consider citing us 😘
       booktitle = {Submitted for publication},
       year = {2020}, 
     }
+
     
 This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.9155349):
 
@@ -78,6 +80,15 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
       year = {2020},
       pages = {1618--1627},
       doi = {10.1109/INFOCOM41043.2020.9155359},
+    }
+    
+You can cite the source code of **CasFlow** as:
+
+    @misc{code2020casflow
+      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski}, 
+      title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction [{S}ource {C}ode]}, 
+      year = {2020}, 
+      note = {\url{https://doi.org/10.24433/CO.4817418.v1}},
     }
     
 We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be interested:
