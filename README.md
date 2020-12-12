@@ -65,7 +65,7 @@ If you find **CasFlow** useful for your research, please consider citing us 😘
 
     @article{zhou2020casflow,  
       author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
-      title = {CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
+      title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
       booktitle = {Submitted for publication},
       year = {2020}, 
     }
