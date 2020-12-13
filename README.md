@@ -82,15 +82,6 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
       doi = {10.1109/INFOCOM41043.2020.9155359},
     }
     
-You can cite the source code of **CasFlow** as:
-
-    @misc{code2020casflow
-      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski}, 
-      title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction [{S}ource {C}ode]}, 
-      year = {2020}, 
-      note = {\url{https://doi.org/10.24433/CO.4817418.v1}},
-    }
-    
 We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be interested:
 
     @article{zhou2020survey,
