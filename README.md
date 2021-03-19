@@ -82,11 +82,17 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
       doi = {10.1109/INFOCOM41043.2020.9155359},
     }
     
-We also have a [survey paper](https://arxiv.org/abs/2005.11041) you might be interested:
 
-    @article{zhou2020survey,
+We also have a [survey paper](https://dl.acm.org/doi/10.1145/3433000) you might be interested:
+
+
+    @article{zhou2021survey,
       author = {Fan Zhou and Xovee Xu and Goce Trajcevski and Kunpeng Zhang}, 
-      title = {A Survey of Information Cascade Analysis: Models, Predictions and Recent Advances}, 
+      title = {A Survey of Information Cascade Analysis: Models, Predictions, and Recent Advances}, 
       journal = {ACM Computing Surveys (CSUR)}, 
-      year = {2020},
+      volume = {54},
+      number = {2},
+      year = {2021},
+      pages = {1--36},
+      doi = {10.1145/3433000},
     }
