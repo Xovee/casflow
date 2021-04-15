@@ -19,7 +19,7 @@ flags.DEFINE_integer('verbose', 2, 'Verbose.')
 flags.DEFINE_integer('patience', 10, 'Early stopping patience.')
 
 # paths
-flags.DEFINE_string ('input', './dataset/weibo_new/', 'Dataset path.')
+flags.DEFINE_string ('input', './dataset/xovee/', 'Dataset path.')
 
 
 def main(argv):
