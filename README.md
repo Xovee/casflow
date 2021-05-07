@@ -83,7 +83,7 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
     }
     
 
-We also have a [survey paper](https://dl.acm.org/doi/10.1145/3433000) you might be interested:
+We also have a [survey paper](https://xovee.cn/html/paper-redirects/csur2021.html) you might be interested:
 
 
     @article{zhou2021survey,
@@ -93,6 +93,11 @@ We also have a [survey paper](https://dl.acm.org/doi/10.1145/3433000) you might 
       volume = {54},
       number = {2},
       year = {2021},
-      pages = {1--36},
+      articleno = {27},
+      numpages = {36},
       doi = {10.1145/3433000},
     }
+
+## Contact
+
+For any questions (as well as request for the pdf version) please open an issue or drop an email to: `xovee at ieee.org`
