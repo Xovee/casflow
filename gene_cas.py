@@ -209,6 +209,8 @@ def main(argv):
     time_start = time.time()
     print('Start to run the CsaFlow code!\n')
     print('Dataset path: {}\n'.format(FLAGS.input))
+    if 'xovee' in FLAGS.input:
+        print('Note: this is just a sample dataset.\n')
 
     generate_cascades(FLAGS.observation_time, FLAGS.prediction_time,
                       FLAGS.input + 'dataset.txt',

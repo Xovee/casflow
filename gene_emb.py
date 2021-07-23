@@ -4,6 +4,7 @@ from absl import app, flags
 
 from utils.graphwave.graphwave import *
 from utils.sparse_matrix_factorization import *
+import matplotlib.pyplot as plt
 
 # flags
 FLAGS = flags.FLAGS
@@ -43,6 +44,10 @@ def read_labels(filename):
 
 
 def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
+    """
+    Input: cascade graphs, global embeddings
+    Output: cascade embeddings, with global embeddings appended
+    """
     y_data = list()
     cascade_input = list()
     global_input = list()
@@ -50,13 +55,17 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
     cascade_size = len(graphs)
     total_time = 0
 
+    # for each cascade graph, generate its embeddings via wavelets
     for key, graph in graphs.items():
         start_time = time.time()
         y = int(labels[key])
+
+        # lists for saving embeddings
         cascade_temp = list()
         global_temp = list()
 
-        dg = nx.DiGraph()
+        # build graph
+        g = nx.Graph()
         nodes_index = list()
         list_edge = list()
         cascade_embedding = list()
@@ -64,6 +73,7 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
         times = list()
         t_o = FLAGS.observation_time
 
+        # add edges into graph
         for path in graph:
             t = path[1]
             if t >= t_o:
@@ -76,29 +86,34 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
             else:
                 nodes_index.extend([nodes[-1]])
             if weight:
-                edge = (nodes[-1], nodes[-2], (1 - t / t_o))
+                edge = (nodes[-1], nodes[-2], (1 - t / t_o))  # weighted edge
                 times.append(1 - t / t_o)
             else:
                 edge = (nodes[-1], nodes[-2])
             list_edge.append(edge)
 
         if weight:
-            dg.add_weighted_edges_from(list_edge)
+            g.add_weighted_edges_from(list_edge)
         else:
-            dg.add_edges_from(list_edge)
+            g.add_edges_from(list_edge)
 
+        # this list is used to make sure the node order of `chi` is same to node order of `cascade`
         nodes_index_unique = list(set(nodes_index))
         nodes_index_unique.sort(key=nodes_index.index)
 
+        # embedding dim check
         d = FLAGS.cg_emb_dim / (2 * FLAGS.num_s)
         if FLAGS.cg_emb_dim % 4 != 0:
             raise ValueError
 
-        # embeddings
-        chi, _, _ = graphwave_alg(dg, np.linspace(0, 100, int(d)),
+        # generate cascade embeddings
+        chi, _, _ = graphwave_alg(g, np.linspace(0, 100, int(d)),
                                   taus='auto', verbose=False,
                                   nodes_index=nodes_index_unique,
                                   nb_filters=FLAGS.num_s)
+
+        nx.draw(g)
+        plt.show()
 
         # save embeddings into list
         for node in nodes_index:
@@ -111,13 +126,16 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
                                                 np.array(cascade_embedding)[:, 1:]],
                                                axis=1)
 
+        # save embeddings
         cascade_temp.extend(cascade_embedding)
         global_temp.extend(global_embedding)
         cascade_input.append(cascade_temp)
         global_input.append(global_temp)
 
+        # save labels
         y_data.append(y)
 
+        # log
         total_time += time.time() - start_time
         cascade_i += 1
         if cascade_i % 1000 == 0:
@@ -126,6 +144,7 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
             print('{}/{}, eta: {:.2f} mins'.format(
                 cascade_i, cascade_size, eta/60))
 
+    # write concatenated embeddings into file
     with open(filename, 'wb') as f:
         pickle.dump((cascade_input, global_input, y_data), f)
 
