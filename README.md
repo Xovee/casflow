@@ -9,8 +9,8 @@
 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction  
-> [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Xovee Xu](https://xovee.cn), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en) and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
-> Submitted for review  
+> [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
+> IEEE Transactions on Knowledge and Data Engineering (TKDE), 15 pages, 2021, Accepted 
 
 ## Basic Usage
 
@@ -67,11 +67,12 @@ Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.
 
 If you find **CasFlow** useful for your research, please consider citing us 😘:
 
-    @article{zhou2020casflow,  
-      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
+    @article{xu2021casflow,  
+      author = {Xovee Xu and Fan Zhou and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
       title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
-      booktitle = {Submitted for publication},
-      year = {2020}, 
+      journal = {IEEE Transactions on Knowledge and Data Engineering (TKDE)},
+      year = {2021}, 
+      numpages = {15}, 
     }
 
     
