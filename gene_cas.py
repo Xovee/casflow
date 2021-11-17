@@ -7,11 +7,14 @@ from absl import app, flags
 
 # flags
 FLAGS = flags.FLAGS
+
 # observation and prediction time settings:
-# for twitter dataset, we
-# for weibo   dataset, we use 1800 (0.5 hour) and 3600 (1 hour) as observation time
+# for twitter dataset, we use 3600*24*1 (86400, 1 day) or 3600*24*2 (172800, 2 days) as observation time
+#                      we use 3600*24*32 (2764800, 32 days) as prediction time
+# for weibo   dataset, we use 1800 (0.5 hour) or 3600 (1 hour) as observation time
 #                      we use 3600*24 (86400, 1 day) as prediction time
-# for aps     dataset, we
+# for aps     dataset, we use 365*3 (1095, 3 years) or 365*5+1 (1826, 5 years) as observation time
+#                      we use 365*20+5 (7305, 20 years) as prediction time
 flags.DEFINE_integer('observation_time', 1800, 'Observation time.')
 flags.DEFINE_integer('prediction_time', 3600*24, 'Prediction time.')
 
@@ -28,6 +31,12 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
     cascades_total = 0
     cascades_valid_total = 0
 
+    # Weibo dataset: 18 for t_o of 0.5 hour and 19 for t_o of 1 hour
+    if ob_time == 3600:
+        end_hour = 19
+    else:
+        end_hour = 18
+
     with open(filename) as file:
         for line in file:
             # split the cascades into 5 parts
@@ -41,16 +50,20 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
             cascade_id = parts[0]
 
             # filter cascades by their publish date/time
-            if 'weibo' or 'xovee' in FLAGS.input:
+            if 'weibo' or 'sample' in FLAGS.input:
                 # timezone invariant
                 hour = int(time.strftime('%H', time.gmtime(float(parts[2])))) + 8
-                # 18 for t_o of 0.5 hour and 19 for t_o of 1 hour
-                if hour < 8 or hour >= 18:
+                if hour < 8 or hour >= end_hour:
                     continue
             elif 'twitter' in FLAGS.input:
-                continue
+                month = int(time.strftime('%m', time.localtime(float(parts[2]))))
+                day = int(time.strftime('%d', time.localtime(float(parts[2]))))
+                if month == 4 and day > 10:
+                    continue
             elif 'aps' in FLAGS.input:
-                continue
+                publish_time = parts[2]
+                if publish_time > '1997':
+                    continue
             else:
                 print('Wow, a brand new dataset!')
 

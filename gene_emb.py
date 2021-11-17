@@ -112,9 +112,6 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
                                   nodes_index=nodes_index_unique,
                                   nb_filters=FLAGS.num_s)
 
-        nx.draw(g)
-        plt.show()
-
         # save embeddings into list
         for node in nodes_index:
             cascade_embedding.append(chi[nodes_index_unique.index(node)])
@@ -167,6 +164,7 @@ def main(argv):
         gg = pickle.load(f)
 
     # sparse matrix factorization
+    print('Generating embeddings of nodes in global graph.')
     model = SparseMatrixFactorization(gg, FLAGS.gg_emb_dim)
     gg_emb = model.pre_factorization(model.matrix, model.matrix)
 

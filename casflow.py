@@ -99,9 +99,12 @@ def main(argv):
     predictions = [1 if pred < 1 else pred for pred in np.squeeze(casflow.predict_generator(test_generator))]
     test_label = [1 if label < 1 else label for label in test_label]
 
+    # metrics MSLE and MAPE reported in paper are defined as
     report_msle = np.mean(np.square(np.log2(predictions) - np.log2(test_label)))
+    report_mape = np.mean(np.abs(np.log2(np.array(predictions) + 1) - np.log2(np.array(test_label) + 1))
+                          / np.log2(np.array(test_label) + 2))
 
-    print(report_msle)
+    print('Test MSLE: {:.4f}, MAPE: {:.4f}'.format(report_msle, report_mape))
 
     print('Finished! Time used: {:.3f}mins.'.format((time.time()-start_time)/60))
 
