@@ -6,8 +6,7 @@
 ![](https://img.shields.io/badge/cudatoolkit-10.0-green)
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
-Note: It seems `tensorflow-gpu 2.0.0a0` cannot download now. I will change the dependencies. 
-
+Note: It seems `tensorflow-gpu 2.0.0a0` cannot download now. I plan to re-write the code to adapt it to the latest TensorFlow version. 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
 > [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
