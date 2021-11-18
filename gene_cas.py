@@ -16,10 +16,10 @@ FLAGS = flags.FLAGS
 # for aps     dataset, we use 365*3 (1095, 3 years) or 365*5+1 (1826, 5 years) as observation time
 #                      we use 365*20+5 (7305, 20 years) as prediction time
 flags.DEFINE_integer('observation_time', 1800, 'Observation time.')
-flags.DEFINE_integer('prediction_time', 3600*24, 'Prediction time.')
+flags.DEFINE_integer('prediction_time', 86400, 'Prediction time.')
 
 # path
-flags.DEFINE_string ('input', './dataset/xovee/', 'Dataset path.')
+flags.DEFINE_string ('input', '', 'Dataset path.')
 
 
 def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_test, seed):
@@ -50,7 +50,7 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
             cascade_id = parts[0]
 
             # filter cascades by their publish date/time
-            if 'weibo' or 'sample' in FLAGS.input:
+            if 'weibo' in FLAGS.input:
                 # timezone invariant
                 hour = int(time.strftime('%H', time.gmtime(float(parts[2])))) + 8
                 if hour < 8 or hour >= end_hour:

@@ -6,8 +6,10 @@
 ![](https://img.shields.io/badge/cudatoolkit-10.0-green)
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
 
+Note: It seems `tensorflow-gpu 2.0.0a0` cannot download now. I will change the dependencies. 
+
 This repo provides a reference implementation of **CasFlow** as described in the paper:
-> CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction  
+> [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
 > [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
 > IEEE Transactions on Knowledge and Data Engineering (TKDE), 14 pages, 2021
 
@@ -33,13 +35,13 @@ pip install -r requirements.txt
 cd ./casflow
 
 # generate information cascades
-python gene_cas.py
+python gene_cas.py --input=./dataset/weibo/
 
 # generate cascade graph and global graph embeddings 
-python gene_emb.py
+python gene_emb.py --input=./dataset/weibo/
 
 # run CasFlow model
-python casflow.py
+python casflow.py --input=./dataset/weibo/
 ```
 More running options are described in the codes, e.g., `--input=./dataset/weibo/`
 
@@ -99,4 +101,4 @@ We also have a [survey paper](https://xovee.cn/html/paper-redirects/csur2021.htm
 
 ## Contact
 
-For any questions (as well as request for the pdf version) please open an issue or drop an email to: `xovee at ieee.org`
+For any questions please open an issue or drop an email to: `xovee at ieee.org`

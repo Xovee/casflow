@@ -4,7 +4,6 @@ from absl import app, flags
 
 from utils.graphwave.graphwave import *
 from utils.sparse_matrix_factorization import *
-import matplotlib.pyplot as plt
 
 # flags
 FLAGS = flags.FLAGS
