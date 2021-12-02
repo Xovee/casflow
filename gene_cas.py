@@ -65,7 +65,7 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
                 if publish_time > '1997':
                     continue
             else:
-                print('Wow, a brand new dataset!')
+                pass
 
             paths = parts[4].strip().split(' ')
 
