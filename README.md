@@ -1,12 +1,11 @@
 # CasFlow
 
 ![](https://img.shields.io/badge/TKDE-2021-blue)
-![](https://img.shields.io/badge/python-3.7-green)
-![](https://img.shields.io/badge/tensorflow-2.0.0a-green)
-![](https://img.shields.io/badge/cudatoolkit-10.0-green)
+![](https://img.shields.io/badge/python-3.8-green)
+![](https://img.shields.io/badge/tensorflow-2.3-green)
+![](https://img.shields.io/badge/cudatoolkit-10.1-green)
 ![](https://img.shields.io/badge/cudnn-7.6.5-green)
-
-Note: It seems `tensorflow-gpu 2.0.0a0` cannot download now. I plan to re-write the code to adapt it to the latest TensorFlow version. 
+ 
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
 > [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
@@ -16,11 +15,11 @@ This repo provides a reference implementation of **CasFlow** as described in the
 
 ### Requirements
 
-The code was tested with `python 3.7`, `tensorflow-gpu 2.0.0a`, `cudatookkit 10.0`, and `cudnn 7.6.5`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
+The code was tested with `python 3.8`, `tensorflow 2.3`, `cudatoolkit 10.1`, and `cudnn 7.6.5`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
 
 ```shell
 # create virtual environment
-conda create --name casflow python=3.7 cudatoolkit=10.0 cudnn=7.6.5
+conda create --name casflow python=3.8 cudatoolkit=10.1 cudnn=7.6.5
 
 # activate environment
 conda activate casflow
@@ -89,7 +88,7 @@ We also have a [survey paper](https://xovee.cn/html/paper-redirects/csur2021.htm
     @article{zhou2021survey,
       author = {Fan Zhou and Xovee Xu and Goce Trajcevski and Kunpeng Zhang}, 
       title = {A Survey of Information Cascade Analysis: Models, Predictions, and Recent Advances}, 
-      journal = {ACM Computing Surveys (CSUR)}, 
+      journal = {ACM Computing Surveys}, 
       volume = {54},
       number = {2},
       year = {2021},
