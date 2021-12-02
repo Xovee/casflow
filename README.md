@@ -33,13 +33,13 @@ pip install -r requirements.txt
 cd ./casflow
 
 # generate information cascades
-python gene_cas.py --input=./dataset/weibo/
+python gene_cas.py --input=./dataset/sample/
 
 # generate cascade graph and global graph embeddings 
-python gene_emb.py --input=./dataset/weibo/
+python gene_emb.py --input=./dataset/sample/
 
 # run CasFlow model
-python casflow.py --input=./dataset/weibo/
+python casflow.py --input=./dataset/sample/
 ```
 More running options are described in the codes, e.g., `--input=./dataset/weibo/`
 
