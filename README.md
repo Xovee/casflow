@@ -9,7 +9,7 @@
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
 > [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
-> IEEE Transactions on Knowledge and Data Engineering (TKDE), 14 pages, 2021
+> IEEE Transactions on Knowledge and Data Engineering (TKDE), 15 pages, 2021
 
 ## Basic Usage
 
@@ -65,7 +65,7 @@ If you find **CasFlow** useful for your research, please consider citing us 😘
       title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
       journal = {IEEE Transactions on Knowledge and Data Engineering (TKDE)},
       year = {2021}, 
-      numpages = {14}, 
+      numpages = {15}, 
       doi = {10.1109/TKDE.2021.3126475}, 
     }
 
