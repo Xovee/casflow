@@ -1,9 +1,7 @@
 import pickle
 import time
 
-import tensorflow as tf
 from absl import app, flags
-import numpy as np
 
 from utils.tools import *
 
@@ -85,7 +83,7 @@ def main(argv):
     casflow.add_loss(cas_kl_loss)
     casflow.add_loss(-.1 * tf.reduce_mean(logD_loss))
 
-    optimizer = tf.keras.optimizers.Adam(lr=FLAGS.lr)
+    optimizer = tf.keras.optimizers.Adam(learning_rate=FLAGS.lr)
     casflow.compile(loss='msle', optimizer=optimizer, metrics=['msle'])
 
     train_generator = Generator(train_cascade, train_global, train_label, FLAGS.b_size, FLAGS.max_seq)

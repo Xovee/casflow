@@ -1,10 +1,10 @@
 # CasFlow
 
 ![](https://img.shields.io/badge/TKDE-2021-blue)
-![](https://img.shields.io/badge/python-3.8-green)
-![](https://img.shields.io/badge/tensorflow-2.3-green)
-![](https://img.shields.io/badge/cudatoolkit-10.1-green)
-![](https://img.shields.io/badge/cudnn-7.6.5-green)
+![](https://img.shields.io/badge/python-3.9.7-green)
+![](https://img.shields.io/badge/tensorflow-2.9.1-green)
+![](https://img.shields.io/badge/cudatoolkit-11.2.2-green)
+![](https://img.shields.io/badge/cudnn-8.1.0-green)
  
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
@@ -15,16 +15,17 @@ This repo provides a reference implementation of **CasFlow** as described in the
 
 ### Requirements
 
-The code was tested with `python 3.8`, `tensorflow 2.3`, `cudatoolkit 10.1`, and `cudnn 7.6.5`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
+The code was tested with `python 3.9.7`, `tensorflow 2.9.1`, `cudatoolkit 11.2`, and `cudnn 8.1.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
 
 ```shell
 # create virtual environment
-conda create --name casflow python=3.8 cudatoolkit=10.1 cudnn=7.6.5
+conda create --name casflow python=3.9 
 
 # activate environment
 conda activate casflow
 
-# install other requirements
+# install tensorflow and other requirements
+conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 pip install -r requirements.txt
 ```
 
@@ -41,7 +42,10 @@ python gene_emb.py --input=./dataset/sample/
 # run CasFlow model
 python casflow.py --input=./dataset/sample/
 ```
-More running options are described in the codes, e.g., `--input=./dataset/weibo/`
+More running options are described in the codes, e.g., 
+
+- Using the Weibo dataset: `--input=./dataset/weibo/`
+- Change observation time: `--observation_time=3600`
 
 ## Datasets
 
@@ -54,7 +58,7 @@ The datasets we used in the paper are come from:
 - [Twitter](http://carl.cs.indiana.edu/data/#virality2013) (Weng *et al.*, [Virality Prediction and Community Structure in Social Network](https://www.nature.com/articles/srep02522), Scientific Report, 2013).
 - [Weibo](https://github.com/CaoQi92/DeepHawkes) (Cao *et al.*, [DeepHawkes: Bridging the Gap between 
 Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.1145/3132847.3132973), CIKM, 2017). You can also download Weibo dataset [here](https://drive.google.com/file/d/1fgkLeFRYQDQOKPujsmn61sGbJt6PaERF/view?usp=sharing) in Google Drive.  
-- [APS](https://journals.aps.org/datasets) (Released by *American Physical Society*, obtained at Jan 17, 2019). 
+- [APS](https://journals.aps.org/datasets) (Released by *American Physical Society*, obtained at Jan 17, 2019).  
 
 ## Cite
 
