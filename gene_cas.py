@@ -31,8 +31,9 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
     cascades_total = 0
     cascades_valid_total = 0
 
-    # Weibo dataset: 18 for t_o of 0.5 hour and 19 for t_o of 1 hour
-    if ob_time == 3600:
+    # Important node: for weibo dataset, if you want to compare CasFlow with baselines such as DeepHawkes and CasCN,
+    # make sure the ob_time is set consistently.
+    if ob_time in [3600, 3600*2, 3600*3]:  # end_hour is set to 19 in DeepHawkes and CasCN, but it should be 18
         end_hour = 19
     else:
         end_hour = 18
@@ -48,7 +49,6 @@ def generate_cascades(ob_time, pred_time, filename, file_train, file_val, file_t
             cascades_total += 1
             parts = line.split('\t')
             cascade_id = parts[0]
-
             # filter cascades by their publish date/time
             if 'weibo' in FLAGS.input:
                 # timezone invariant
@@ -232,8 +232,8 @@ def main(argv):
                       FLAGS.input + 'test.txt',
                       seed=0)
 
-    generate_global_graph(FLAGS.input + 'dataset.txt',
-                          FLAGS.input + 'global_graph.pkl')
+    # generate_global_graph(FLAGS.input + 'dataset.txt',
+    #                       FLAGS.input + 'global_graph.pkl')
 
     print('Processing time: {:.2f}s'.format(time.time()-time_start))
 

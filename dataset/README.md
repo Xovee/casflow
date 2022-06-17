@@ -33,6 +33,8 @@ There's five parts each line, splited by `\t`:
 
 For reproducing our results, make sure the dataset split results are correct (consistent with the table below). Followings are cascade IDs in the first few lines of each dataset. 
 
+> For historical reasons, baselines such as DeepHawkes and CasCN use 8 AM to 7 PM settings (which should be 8 AM to 6 PM) and they also used `time.localtime()` function to process UTC timestamps (might be UTC+8). If you want to compare CasFlow to other baselines, make sure their datasets (train, val, and test) are identical for training and testing. 
+
 | Dataset | Obvervation Time | Training Set                                 | Validation Set                             | Test Set                                   |
 |:--------|:-----------------|:---------------------------------------------|:-------------------------------------------|:-------------------------------------------|
 | Twitter | 1 day            | 7355 ...<br>44241 ...<br>401 ...<br>...      | 26 ...<br>43 ...<br>44 ...<br>...          | 23 ...<br>33 ...<br>39 ...<br>...          |
