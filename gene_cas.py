@@ -232,8 +232,8 @@ def main(argv):
                       FLAGS.input + 'test.txt',
                       seed=0)
 
-    # generate_global_graph(FLAGS.input + 'dataset.txt',
-    #                       FLAGS.input + 'global_graph.pkl')
+    generate_global_graph(FLAGS.input + 'dataset.txt',
+                          FLAGS.input + 'global_graph.pkl')
 
     print('Processing time: {:.2f}s'.format(time.time()-time_start))
 
