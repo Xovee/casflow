@@ -8,7 +8,7 @@
  
 This repo provides a reference implementation of **CasFlow** as described in the paper:
 > [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
-> [Xovee Xu](https://xovee.cn), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
+> [Xovee Xu](https://www.xoveexu.com), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
 > IEEE Transactions on Knowledge and Data Engineering (TKDE), 15 pages, 2021
 
 ## Basic Usage
@@ -86,7 +86,7 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
     }
     
 
-We also have a [survey paper](https://xovee.cn/html/paper-redirects/csur2021.html) you might be interested:
+We also have a [survey paper](https://www.xoveexu.com/html/paper-redirects/csur2021.html) you might be interested:
 
 
     @article{zhou2021survey,
@@ -103,4 +103,4 @@ We also have a [survey paper](https://xovee.cn/html/paper-redirects/csur2021.htm
 
 ## Contact
 
-For any questions please open an issue or drop an email to: `xovee at ieee.org`
+For any questions please open an issue or drop an email to: `xovee at live.com`
