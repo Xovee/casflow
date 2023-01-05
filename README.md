@@ -86,7 +86,7 @@ This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.
     }
     
 
-We also have a [survey paper](https://www.xoveexu.com/html/paper-redirects/csur2021.html) you might be interested:
+We also have a [survey paper](https://dl.acm.org/doi/10.1145/3433000) you might be interested:
 
 
     @article{zhou2021survey,
