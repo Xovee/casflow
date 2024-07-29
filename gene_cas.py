@@ -220,7 +220,7 @@ def generate_global_graph(file_name, graph_save_path):
 
 def main(argv):
     time_start = time.time()
-    print('Start to run the CsaFlow code!\n')
+    print('Start to run the CasFlow code!\n')
     print('Dataset path: {}\n'.format(FLAGS.input))
     if 'xovee' in FLAGS.input:
         print('Note: this is just a sample dataset.\n')
