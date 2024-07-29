@@ -147,6 +147,9 @@ def write_cascade(graphs, labels, id2row, filename, gg_emb, weight=True):
 
 def main(argv):
     time_start = time.time()
+    print('Start to generate graphs and graph embeddings.\n')
+    print('Note! This may require a large system memory (~64GB).\n')
+    print('Should be finished in about 10-20 minutes.\n')
 
     # get the information of nodes/users of cascades
     graph_train = sequence2list(FLAGS.input + 'train.txt')

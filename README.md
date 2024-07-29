@@ -29,6 +29,8 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 pip install -r requirements.txt
 ```
 
+A note from 2024: fu*k tensorflow
+
 ### Run the code
 ```shell
 cd ./casflow
