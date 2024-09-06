@@ -31,6 +31,27 @@ pip install -r requirements.txt
 
 A note from 2024: fu*k tensorflow
 
+<details>
+ <summary>If you fail to initialize the GPU</summary>
+
+ It could be your environment incorrectly loads the system-wide installation of CUDA instead of the version CUDA 11.2. You can follow this to use the 11.2 version temporarily:
+
+ ```shell
+ unset CUDA_HOME
+ unset LD_LIBRARY_PATH
+
+ export PATH=$CONDA_PREFIX/lib:$PATH
+ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+ ```
+
+ Then you can try using the GPU:
+ ```python
+ import tensorflow as tf
+ print(tf.config.list_physical_devices('GPU'))
+ ```
+ 
+</details>
+
 ### Run the code
 ```shell
 cd ./casflow
