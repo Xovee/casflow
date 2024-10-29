@@ -34,7 +34,7 @@ A note from 2024: fu*k tensorflow
 <details>
  <summary>If you fail to initialize the GPU</summary>
 
- It could be your environment incorrectly loads the system-wide installation of CUDA instead of the version CUDA 11.2. You can follow this to use the 11.2 version temporarily:
+ It could be your environment incorrectly loads the system-wide installation of CUDA instead of the version CUDA 11.2. You can follow this to use the 11.2 version temporarily. First, open a new shell window. Then, run the following codes:
 
  ```shell
  unset CUDA_HOME
