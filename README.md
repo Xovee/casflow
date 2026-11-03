@@ -1,131 +1,59 @@
 # CasFlow
 
-![](https://img.shields.io/badge/TKDE-2021-blue)
-![](https://img.shields.io/badge/python-3.9.7-green)
-![](https://img.shields.io/badge/tensorflow-2.9.1-green)
-![](https://img.shields.io/badge/cudatoolkit-11.2.2-green)
-![](https://img.shields.io/badge/cudnn-8.1.0-green)
- 
-This repo provides a reference implementation of **CasFlow** as described in the paper:
-> [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475)  
-> [Xovee Xu](https://www.xoveexu.com), [Fan Zhou](https://dblp.org/pid/63/3122-2.html), [Kunpeng Zhang](http://www.terpconnect.umd.edu/~kpzhang/), [Siyuan Liu](https://scholar.google.com/citations?user=Uhvt7OIAAAAJ&hl=en), and [Goce Trajcevski](https://dblp.org/pid/66/974.html)  
-> IEEE Transactions on Knowledge and Data Engineering (TKDE), 2021
+PyTorch reference implementation of [CasFlow: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction](https://doi.org/10.1109/TKDE.2021.3126475), TKDE 2021.
 
-## Basic Usage
+## Run
 
-### Requirements
+Use Python 3.12 and a PyTorch build suitable for your hardware.
 
-The code was tested with `python 3.9.7`, `tensorflow 2.9.1`, `cudatoolkit 11.2`, and `cudnn 8.1.0`. Install the dependencies via [Anaconda](https://www.anaconda.com/):
-
-```shell
-# create virtual environment
-conda create --name casflow python=3.9 
-
-# activate environment
-conda activate casflow
-
-# install tensorflow and other requirements
-conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+```bash
 pip install -r requirements.txt
+
+python -m casflow.prepare --dataset weibo \
+    --raw datasets/cascades/weibo.parquet --output prepared/weibo.pt
+python -m casflow.train --data prepared/weibo.pt --output results/weibo
 ```
 
-A note from 2024: fu*k tensorflow
+Download [cascades.zip](https://drive.google.com/file/d/1r-OHiiO9QdYH8sBc6tjmOd-vb_rJCYBo/view?usp=sharing) and extract it into `datasets/`. A small Weibo example is included at `datasets/sample.parquet`; see the [data format](datasets/README.md).
 
-<details>
- <summary>If you fail to initialize the GPU</summary>
+Set `--observation` during preparation; the default is the first window below. Weibo and Twitter use seconds; APS uses days.
 
- It could be your environment incorrectly loads the system-wide installation of CUDA instead of the version CUDA 11.2. You can follow this to use the 11.2 version temporarily. First, open a new shell window. Then, run the following codes:
+| Dataset | Observation windows | Prediction horizon |
+| --- | --- | --- |
+| Weibo | 1800 / 3600 | 86400 |
+| Twitter | 86400 / 172800 | 2764800 |
+| APS | 1095 / 1826 | 7305 |
 
- ```shell
- unset CUDA_HOME
- unset LD_LIBRARY_PATH
+The train/validation/test split is fixed at 70/15/15%. Global embeddings use only training cascades within their observation window. Validation/test cascades do not contribute to this graph; unseen or isolated nodes receive zero global vectors.
 
- export PATH=$CONDA_PREFIX/lib:$PATH
- export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
- ```
+Training stops after 10 epochs without validation improvement and saves the best model, history, test predictions, and metrics. Use `--runs N` for independent repetitions, starting at `--seed` (default: 0). `summary.json` reports means and standard deviations. CPU/CUDA selection is automatic, or set with `--device`.
 
- Then you can try using the GPU:
- ```python
- import tensorflow as tf
- print(tf.config.list_physical_devices('GPU'))
- ```
- 
-</details>
+## Test
 
-### Run the code
-```shell
-cd ./casflow
+Training evaluates the test split automatically. To evaluate a saved checkpoint:
 
-# generate information cascades
-python gene_cas.py --input=./dataset/sample/
-
-# generate cascade graph and global graph embeddings 
-python gene_emb.py --input=./dataset/sample/
-
-# run CasFlow model
-python casflow.py --input=./dataset/sample/
+```bash
+python -m casflow.test --data prepared/weibo.pt \
+    --checkpoint results/weibo/seed-0/best.pt --output results/weibo/seed-0/test
 ```
-More running options are described in the codes, e.g., 
 
-- Using the Weibo dataset: `--input=./dataset/weibo/`
-- Change observation time: `--observation_time=3600`
+Evaluation reuses the checkpoint's seed, batch size and posterior sample count, and saves metrics and predictions.
 
-## Datasets
+The original TensorFlow code is archived in `legacy/tensorflow/`. See [implementation differences](IMPLEMENTATION-DIFFERENCES.md).
 
-See some sample cascades in `./dataset/sample/`.
+## Citation
 
-Datasets download link: [Google Drive](https://drive.google.com/file/d/1o4KAZs19fl4Qa5LUtdnmNy57gHa15AF-/view?usp=sharing) or [Baidu Drive (password: `1msd`)](https://pan.baidu.com/s/1tWcEefxoRHj002F0s9BCTQ).
+```bibtex
+@article{xu2023casflow,
+  author = {Xovee Xu and Fan Zhou and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},
+  title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
+  journal = {IEEE Transactions on Knowledge and Data Engineering},
+  year = {2023},
+  volume = {35},
+  number = {4},
+  pages = {3484--3499},
+  doi = {10.1109/TKDE.2021.3126475}
+}
+```
 
-The datasets we used in the paper are come from:
-
-- [Twitter](http://carl.cs.indiana.edu/data/#virality2013) (Weng *et al.*, [Virality Prediction and Community Structure in Social Network](https://www.nature.com/articles/srep02522), Scientific Report, 2013).
-- [Weibo](https://github.com/CaoQi92/DeepHawkes) (Cao *et al.*, [DeepHawkes: Bridging the Gap between 
-Prediction and Understanding of Information Cascades](https://dl.acm.org/doi/10.1145/3132847.3132973), CIKM, 2017). You can also download Weibo dataset [here](https://drive.google.com/file/d/1fgkLeFRYQDQOKPujsmn61sGbJt6PaERF/view?usp=sharing) in Google Drive.  
-- [APS](https://journals.aps.org/datasets) (Released by *American Physical Society*, obtained at Jan 17, 2019).  
-
-## Cite
-
-If you find **CasFlow** useful for your research, please consider citing us 😘:
-
-    @article{xu2021casflow,  
-      author = {Xovee Xu and Fan Zhou and Kunpeng Zhang and Siyuan Liu and Goce Trajcevski},  
-      title = {Cas{F}low: Exploring Hierarchical Structures and Propagation Uncertainty for Cascade Prediction},
-      journal = {IEEE Transactions on Knowledge and Data Engineering (TKDE)},
-      year = {2021}, 
-      volume = {35}, 
-      number = {4}, 
-      pages={3484-3499}, 
-      doi = {10.1109/TKDE.2021.3126475}, 
-    }
-
-    
-This paper is an extension of [VaCas](https://doi.org/10.1109/INFOCOM41043.2020.9155349):
-
-    @inproceedings{zhou2020variational,
-      author = {Fan Zhou and Xovee Xu and Kunpeng Zhang and Goce Trajcevski and Ting Zhong},
-      title = {Variational Information Diffusion for Probabilistic Cascades Prediction}, 
-      booktitle = {IEEE International Conference on Computer Communications (INFOCOM)},
-      year = {2020},
-      pages = {1618--1627},
-      doi = {10.1109/INFOCOM41043.2020.9155359},
-    }
-    
-
-We also have a [survey paper](https://dl.acm.org/doi/10.1145/3433000) you might be interested:
-
-
-    @article{zhou2021survey,
-      author = {Fan Zhou and Xovee Xu and Goce Trajcevski and Kunpeng Zhang}, 
-      title = {A Survey of Information Cascade Analysis: Models, Predictions, and Recent Advances}, 
-      journal = {ACM Computing Surveys}, 
-      volume = {54},
-      number = {2},
-      year = {2021},
-      articleno = {27},
-      numpages = {36},
-      doi = {10.1145/3433000},
-    }
-
-## Contact
-
-For any questions please open an issue or drop an email to: `xovee at live.com`
+Released under the [MIT License](LICENSE).

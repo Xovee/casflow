@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv*/
+prepared/
+results/
+/datasets/*
+!/datasets/README.md
+!/datasets/sample.parquet
